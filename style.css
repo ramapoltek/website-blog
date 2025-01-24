@@ -1,60 +1,78 @@
-/* General Styles */
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500');
+
 * {
-    margin: 0;
     padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
     box-sizing: border-box;
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f8f8;
+    font-family: 'Roboto', sans-serif;
+    background-image: url('https://images.unsplash.com/photo-1485470733090-0aae1788d5af?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1517&q=80');
+    background-color: #f4f4f4;
     color: #333;
+    transition: background 0.3s ease-in-out;
+    margin: 0;
+    padding: 0;
 }
 
-.container {
-    width: 80%;
-    margin: 0 auto;
-}
-
-h1, h2, h3 {
-    font-family: 'Georgia', serif;
-}
-
-/* Header */
-header {
-    background-color: #34495e;
-    color: white;
-    padding: 40px 0;
+/* General Container Styling */
+.title-container {
     text-align: center;
+    margin: 20px 0;
+}
+
+.title-container h1 {
+    font-size: 2.5em;
+    color: #ffffff;
+}
+
+.title-container h2 {
+    font-size: 1.5em;
+    color: #ffffff;
+    margin-top: 10px;
+}
+
+header {
+    background: #35424a;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 header h1 {
-    font-size: 3.5em;
-    margin-bottom: 0.2em;
+    font-size: 2.5em;
+    margin: 0;
 }
 
 header p {
     font-size: 1.2em;
-    font-style: italic;
 }
 
-/* Sidebar */
+/* Sidebar and Main Content Area */
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
 .sidebar {
-    width: 25%;
-    background-color: #2c3e50;
-    color: white;
-    padding: 20px;
+    width: 250px;
+    background: #35424a;
+    color: #ffffff;
+    padding: 15px;
+    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.2);
     position: fixed;
     top: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    height: 100%;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(-100%);
 }
 
 .sidebar nav ul {
-    list-style: none;
     padding: 0;
 }
 
@@ -62,153 +80,183 @@ header p {
     margin: 15px 0;
 }
 
-.sidebar nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-size: 1.2em;
+.sidebar ul a {
     display: block;
+    padding: 15px;
+    color: #fff;
+    font-size: 18px;
+    padding-left: 40px;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s ease;
 }
 
-.sidebar nav ul li a:hover {
-    color: #f39c12;
+.sidebar ul a:hover,
+.sidebar ul a:focus {
+    background-color: #5d6d7e;
+    outline: none;
 }
 
-/* Blog Area */
+#check {
+    display: none;
+}
+
+label #btn, label #cancel {
+    position: absolute;
+    top: 25px;
+    font-size: 35px;
+    color: white;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+label #btn {
+    left: 40px;
+    background: #042331;
+    border-radius: 3px;
+}
+
+label #cancel {
+    left: -195px;
+    font-size: 30px;
+    color: #0a5275;
+}
+
+#check:checked ~ .sidebar {
+    transform: translateX(0);
+}
+
+#check:checked ~ label #btn {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#check:checked ~ label #cancel {
+    left: 250px;
+}
+
+#check:checked ~ section {
+    margin-left: 250px;
+}
+
 .blog-area {
-    margin-left: 25%;
+    flex: 1;
     padding: 20px;
-    background-color: #fff;
-}
-
-.blog-area h2 {
-    font-size: 2.5em;
-    margin-bottom: 30px;
-    color: #34495e;
+    margin-left: 250px;
+    transition: margin-left 0.3s ease-in-out;
 }
 
 .blog-post {
-    display: flex;
-    margin-bottom: 30px;
-    background-color: #ecf0f1;
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 8px;
-    overflow: hidden;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.blog-post:hover {
+    transform: translateY(-10px);
 }
 
 .blog-post img {
-    width: 40%;
-    height: auto;
+    max-width: 35%;
     border-radius: 8px;
 }
 
-.post-content {
-    padding: 20px;
-    width: 60%;
-}
-
 .post-content h3 {
-    font-size: 2em;
-    margin-bottom: 10px;
-    color: #34495e;
+    margin: 10px 0;
 }
 
-.post-content p {
-    font-size: 1.1em;
-    line-height: 1.6;
+.about-section, .contact-section {
+    background: #ffffff;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.post-content a {
-    color: #3498db;
-    text-decoration: none;
-}
-
-.post-content a:hover {
-    text-decoration: underline;
-}
-
-/* About Section */
-.about-section {
-    background-color: #ffffff;
-    padding: 40px 20px;
-    text-align: center;
-}
-
-.about-section h2 {
-    font-size: 2.5em;
-    color: #34495e;
-    margin-bottom: 20px;
-}
-
-.about-section p {
-    font-size: 1.2em;
-    color: #7f8c8d;
-}
-
-/* Contact Section */
-.contact-section {
-    background-color: #ffffff;
-    padding: 40px 20px;
-    text-align: center;
-}
-
-.contact-section h2 {
-    font-size: 2.5em;
-    color: #34495e;
-    margin-bottom: 20px;
-}
-
-.contact-section p {
-    font-size: 1.2em;
-    color: #7f8c8d;
-}
-
-.contact-section a {
-    color: #3498db;
-    text-decoration: none;
-}
-
-.contact-section a:hover {
-    text-decoration: underline;
-}
-
-/* Footer */
+/* Footer Section */
 footer {
-    background-color: #34495e;
-    color: white;
+    background: #35424a;
+    color: #ffffff;
     text-align: center;
-    padding: 20px 0;
+    padding: 20px;
 }
 
 footer p {
-    font-size: 1em;
+    font-size: 1.1em;
+}
+
+.social-links {
+    margin-top: 20px;
+}
+
+.social-icon {
+    font-size: 2em;
+    color: #333;
+    margin: 0 15px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover,
+.social-icon:focus {
+    color: #0077b5;
+    outline: none;
+}
+
+.social-icon.youtube {
+    color: #FF0000;
+}
+
+.social-icon.instagram {
+    color: #E1306C;
+}
+
+.social-icon.github {
+    color: #333;
+}
+
+/* Hover States for Social Icons */
+.social-icon:hover.youtube {
+    color: #FF0000;
+}
+
+.social-icon:hover.instagram {
+    color: #E1306C;
+}
+
+.social-icon:hover.github {
+    color: #333;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .container {
-        width: 90%;
+    .main-container {
+        flex-direction: column;
     }
 
     .sidebar {
         width: 100%;
-        height: auto;
-        position: relative;
+        position: absolute;
+        top: 0;
+        left: -100%;
+        transform: translateX(-100%);
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
     }
 
     .blog-area {
         margin-left: 0;
     }
 
-    .blog-post {
-        flex-direction: column;
+    label #btn, label #cancel {
+        font-size: 30px;
     }
 
-    .blog-post img {
-        width: 100%;
-        height: auto;
-    }
-
-    .post-content {
-        width: 100%;
-        padding: 15px;
+    .sidebar ul a {
+        padding-left: 30px;
     }
 }
