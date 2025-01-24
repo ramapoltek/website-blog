@@ -3,83 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Personal Blog of [Your Name]">
-    <meta name="author" content="Rama And Gandhi">
-    <title>Rama And Gandhi</title>
+    <meta name="description" content="Personal Blog By Rama Gandhi And Danu">
+    <meta name="author" content="Rama Gandhi And Danu">
+    <title>Rama Gandhi And Danu</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 </head>
 <body>
-
-    <!-- Header Section -->
-    <header>
-        <div class="container">
-            <marquee><h1>We Make Website</h1></marquee>
-            <p>Thoughts, Stories & Ideas</p>
+    <div id="main-container">
+        <div class="title-container">
+            <h1>Rama Gandhi And Danu Blog</h1>
+            <marquee><h2>Welcome To Our Website</h2></marquee>
         </div>
-    </header>
 
-    <!-- Main Content -->
-    <div class="main-container">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#blog">Blog</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </aside>
+        <input type="checkbox" id="check">
+        <label for="check" onclick="toggleSidebar()">
+            <i class="fas fa-bars" id="btn"></i>
+            <i class="fas fa-times" id="cancel"></i>
+        </label>
 
-        <!-- Blog Posts Area -->
-        <section class="blog-area">
-            <h2>Latest Posts</h2>
+        <div class="sidebar" id="sidebar">
+            <header>My App</header>
+            <ul>
+                <li><a href="#" onclick="showSection('home')"><i class="fas fa-home"></i>Home</a></li>
+                <li><a href="#" onclick="showSection('about')"><i class="fas fa-user"></i>About</a></li>
+                <li><a href="#" onclick="showSection('blog')"><i class="fas fa-blog"></i>Blog</a></li>
+                <li><a href="#" onclick="showSection('contact')"><i class="fas fa-envelope"></i>Contact</a></li>
+            </ul>
+        </div>
 
-            <!-- Blog Post 1 -->
-            <article class="blog-post">
-                <img src="https://via.placeholder.com/500x300" alt="Blog Post Image">
-                <div class="post-content">
-                    <h3>My First Blog Post</h3>
-                    <p><em>Posted on January 16, 2025</em></p>
-                    <p>This is a short excerpt from my first blog post. It's a great intro to what I'm about to share. <a href="#">Read more...</a></p>
+        <section>
+            <section id="home" class="blog-area">
+                <h2>Latest Posts</h2>
+                
+                <article class="blog-post">
+                    <img src="images.jpg" alt="Blog Post Image">
+                    <div class="post-content">
+                        <h3>My First Blog Post</h3>
+                        <p><em>Posted on January 16, 2025</em></p>
+                        <p>Hey my name Rama, i like coding and  always exercise for make body</p>
+                        <div id="full-post-1" class="full-post" style="display: none;">
+                            <p>good. When schedule is free i usually sutdy about new lesson i want ko keep going ahead for myself.</p>
+                        </div>
+                        <a href="javascript:void(0);" onclick="togglePost(1)">Read more...</a>
+                    </div>
+                </article>
+
+                <article class="blog-post">
+                    <img src="DSC04688.jpg" alt="Blog Post Image">
+                    <div class="post-content">
+                        <h3>Personaly me</h3>
+                        <p><em>Posted on January 21, 2025</em></p>
+                        <p>I Gandhi, the people who have a big dream..</p>
+                        <div id="full-post-2" class="full-post" style="display: none;">
+                            <p>Try hard to learn and work, to have experience..and have make grow to a milioner</p>
+                        </div>
+                        <a href="javascript:void(0);" onclick="togglePost(2)">Read more...</a>
+                    </div>
+                </article>
+
+                <article class="blog-post">
+                    <img src="DSC04688.jpg" alt="Blog Post Image">
+                    <div class="post-content">
+                        <h3>About me</h3>
+                        <p><em>Posted on January 21, 2025</em></p>
+                        <p>First, my name is Danu..i will tell day in my morning</p>
+                        <div id="full-post-2" class="full-post" style="display: none;">
+                            <p>Every morning, I wake up around 7:00 AM. I start my day with a glass of water to hydrate and get my body moving. After that, i like to strectch a bit or do a short workout to get energized for the day</p>
+                        </div>
+                        <a href="javascript:void(0);" onclick="togglePost(2)">Read more...</a>
+                    </div>
+                </article>
+            </section>
+
+            <section id="about" class="about-section">
+                <div class="container">
+                    <h2>About We</h2>
+                    <p>We Rama Gandhi And Danu, a passionate writer and thinker. I write about technology, culture, and finance. Thanks for visiting!</p>
                 </div>
-            </article>
+            </section>
 
-            <!-- Blog Post 2 -->
-            <article class="blog-post">
-                <img src="https://via.placeholder.com/500x300" alt="Blog Post Image">
-                <div class="post-content">
-                    <h3>Exploring New Ideas</h3>
-                    <p><em>Posted on January 14, 2025</em></p>
-                    <p>Here's a second post where I dive into the world of ideas and creativity. <a href="#">Read more...</a></p>
+            <section id="contact" class="contact-section">
+                <div class="container">
+                    <h2>Contact</h2>
+                    <div class="social-links">
+                        <a href="https://www.youtube.com" target="_blank" class="social-icon youtube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://www.instagram.com" target="_blank" class="social-icon instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://github.com" target="_blank" class="social-icon github">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
                 </div>
-            </article>
+            </section>
+            
+
+            <footer id="footer">
+                <div class="container">
+                    <p>&copy; 2025 Rama Gandhi And Danu. All We Make</p>
+                </div>
+            </footer>
         </section>
     </div>
 
-    <!-- About Section -->
-    <section id="about" class="about-section">
-        <div class="container">
-            <h2>About Me</h2>
-            <p>I'm [Your Name], a passionate writer and thinker. I write about technology, culture, and life lessons. Thanks for visiting!</p>
-        </div>
-    </section>
+    <script>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2>Contact</h2>
-            <p>Feel free to reach out to me via email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Rama and Gandhi. All We Make.</p>
-        </div>
-    </footer>
-
+        function togglePost(postId) {
+            const fullPost = document.getElementById(`full-post-${postId}`);
+            const link = fullPost.previousElementSibling.querySelector('a');
+            if (fullPost.style.display === 'none') {
+                fullPost.style.display = 'block';
+                link.textContent = 'Read less...';
+            } else {
+                fullPost.style.display = 'none';
+                link.textContent = 'Read more...';
+            }
+        }
+    </script>
 </body>
 </html>
